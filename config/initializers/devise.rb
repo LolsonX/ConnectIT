@@ -310,7 +310,7 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   # Facebook integration config
-  config.omniauth :facebook, ENV.fetch('FACEBOOK_APP_ID', ''),
-                  ENV.fetch('FACEBOOK_APP_SECRET', ''),
-                  token_params: { parse: :json }
+  # config.omniauth :facebook, ENV.fetch('FACEBOOK_APP_ID', ''),
+  #                 ENV.fetch('FACEBOOK_APP_SECRET', ''),
+  #                 token_params: { parse: :json }
 end
