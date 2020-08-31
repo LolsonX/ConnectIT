@@ -1,0 +1,63 @@
+pl:
+  devise:
+    confirmations:
+      confirmed: "Twój adres email został potwierdzony"
+      send_instructions: "W ciągu kilku minut na twojej poczcie email pojawi sie wiadomość z dalszymi instrukcjami."
+      send_paranoid_instructions: "Jeśli do Twojego adresu jest przypisane konto, w ciągu kilku minut na twojej poczcie email pojawi sie wiadomość z dalszymi instrukcjami."
+    failure:
+      already_authenticated: "Jesteś już zalogowany."
+      inactive: "Twoje konto jest nieaktywne."
+      invalid: "Nieprawidłowe dane logowania."
+      locked: "Twoje konto zostało zablokowane."
+      last_attempt: "Pozostała ostatnie próba przed zablokowaniem konta."
+      not_found_in_database: "Nieprawidłowe dane logowania."
+      timeout: "Twoja sesja wygasła. Zaloguj się ponownie by kontynuować"
+      unauthenticated: "Przed kontynuowaniem musisz się zalogować"
+      unconfirmed: "Musisz potwierdzić Twój adres email by kontynuować"
+    mailer:
+      confirmation_instructions:
+        subject: "Instrukcje dalszej rejestracji"
+      reset_password_instructions:
+        subject: "Instrukcje do przypomnienia hasła"
+      unlock_instructions:
+        subject: "Instrukcje do odblokowania konta"
+      email_changed:
+        subject: "Email został zmieniony"
+      password_change:
+        subject: "Hasło zostało zmienione"
+    omniauth_callbacks:
+      failure: "Nie udało się zalogować za pomocą %{kind}, ponieważ \"%{reason}\"."
+      success: "Pomyślnie zalogowano za pomocą konta %{kind}."
+    passwords:
+      no_token: "Nie można uzyskać dostępu do strony bez użycia linku z wiadomości email. Upewnij się również czy podany adres jest poprawny"
+      send_instructions: "W ciągu kilku minut dostaniesz wiadomość z instrukcjami do zrestowania hasła."
+      send_paranoid_instructions: "Jeśli do Twojego adresu jest przypisane konto, w ciągu kilku minut na twojej poczcie email pojawi sie wiadomość z dalszymi instrukcjami."
+      updated: "Twoje hasło zostało zmienione. Zostałeś zalogowany."
+      updated_not_active: "Twoje hasło zostało zmienione pomyślnie."
+    registrations:
+      destroyed: "Narazie! Twoje konto zostało anulowane. Mamy nadzieję że do nas wrócisz."
+      signed_up: "Witaj! Zostałeś zalogowany."
+      signed_up_but_inactive: "Logowanie przebiegło pomyślnie, jednak Twoje konto jest nieaktywne."
+      signed_up_but_locked: "Logowanie przebiegło pomyślnie, jednak Twoje konto jest zablokowane."
+      signed_up_but_unconfirmed: "W ciągu kilku minut na twojej poczcie email pojawi sie wiadomość z dalszymi instrukcjami."
+      update_needs_confirmation: "Pomyślnie zmieniono informacje, jednak by kontynuować musisz potwierdzić nowy adres email"
+      updated: "Pomyślnie zmieniono informacje p koncie."
+      updated_but_not_signed_in: "Pomyślnie zmieniono informacje, jednak by kontynuować musisz ponownie podać hasło"
+    sessions:
+      signed_in: "Zalogowano pomyślnie."
+      signed_out: "Wylogowano pomyślnie."
+      already_signed_out: "Wylogowano pomyślnie."
+    unlocks:
+      send_instructions: "Wiadomość z instrukcją jak odblokować konto została wysłana na Twoją pocztę email"
+      send_paranoid_instructions: "Jeśli konto istnieje, na swoją pocztę email dostaniesz wiadomość z dalszymi instrukcjami"
+      unlocked: "Pomyślnie odblokowano konto. Zaloguj się by kontynuować"
+  errors:
+    messages:
+      already_confirmed: "zostało potwierdzone, spróbuj się zalogować"
+      confirmation_period_expired: "musi zostać potwierdzone w ciągu %{period}, poproś o nowe"
+      expired: "wygasł, poproś o nowy"
+      not_found: "nie został odnaleziony"
+      not_locked: "nie został zablokowany"
+      not_saved:
+        one: "1 błąd uniemożliwił zapisanie %{resource}:"
+        other: "%{count} błędv uniemożliwiły zapis %{resource}:"
