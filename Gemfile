@@ -13,16 +13,22 @@ gem 'puma', '~> 4.1'
 gem 'jbuilder', '~> 2.7'
 # Add translations to models
 gem 'globalize', '~> 5.3.0'
+# Swagger integration
+gem 'rswag', '~> 2.3.1'
+# Images upload lib
+gem 'carrierwave', '~> 2.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
+# Webpacker to use react with standard rails
+gem 'webpacker', '~> 5.2.1'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Devise authentication gem
 gem 'devise'
+# Facebook login integration
+gem 'omniauth-facebook'
 # Json Web Token gem
 gem 'jwt'
-# Swagger Ui integration
-gem 'rswag'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
