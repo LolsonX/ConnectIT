@@ -4,7 +4,7 @@ describe "ConnectIT API Registration tests" do
 
   path "/users" do
     post "Registers user" do
-      tags "Registrations"
+      tags "Users"
       produces "application/json"
       consumes "application/json"
       parameter name: :user, in: :body, schema: {

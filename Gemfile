@@ -19,8 +19,6 @@ gem 'rswag', '~> 2.3.1'
 gem 'carrierwave', '~> 2.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Webpacker to use react with standard rails
-gem 'webpacker', '~> 5.2.1'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Devise authentication gem
