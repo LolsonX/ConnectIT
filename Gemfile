@@ -27,8 +27,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 # Facebook login integration
 gem 'omniauth-facebook'
-# Json Web Token gem
-gem 'jwt'
+# Json Web Token with Devise integration gem
+gem 'devise-jwt', '~> 0.7.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -51,4 +51,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+# gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

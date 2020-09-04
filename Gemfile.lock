@@ -78,7 +78,22 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-jwt (0.7.0)
+      devise (~> 4.0)
+      warden-jwt_auth (~> 0.4)
     diff-lcs (1.4.4)
+    dry-auto_inject (0.7.0)
+      dry-container (>= 0.3.4)
+    dry-configurable (0.11.6)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 0.4, >= 0.4.7)
+      dry-equalizer (~> 0.2)
+    dry-container (0.7.2)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 0.1, >= 0.1.3)
+    dry-core (0.4.9)
+      concurrent-ruby (~> 1.0)
+    dry-equalizer (0.3.0)
     erubi (1.9.0)
     faker (2.13.0)
       i18n (>= 1.6, < 2)
@@ -238,6 +253,11 @@ GEM
       thread_safe (~> 0.1)
     warden (1.2.8)
       rack (>= 2.0.6)
+    warden-jwt_auth (0.5.0)
+      dry-auto_inject (~> 0.6)
+      dry-configurable (~> 0.9)
+      jwt (~> 2.1)
+      warden (~> 1.2)
     webpacker (5.2.1)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
@@ -257,10 +277,10 @@ DEPENDENCIES
   byebug
   carrierwave (~> 2.0)
   devise
+  devise-jwt (~> 0.7.0)
   faker (~> 2.13.0)
   globalize (~> 5.3.0)
   jbuilder (~> 2.7)
-  jwt
   listen (~> 3.2)
   omniauth-facebook
   pg (>= 0.18, < 2.0)
@@ -272,7 +292,6 @@ DEPENDENCIES
   shoulda-matchers (~> 4.0)
   spring
   spring-watcher-listen (~> 2.0.0)
-  tzinfo-data
   webpacker (~> 5.2.1)
 
 RUBY VERSION

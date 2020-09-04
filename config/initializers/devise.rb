@@ -313,4 +313,9 @@ Devise.setup do |config|
   # config.omniauth :facebook, ENV.fetch('FACEBOOK_APP_ID', ''),
   #                 ENV.fetch('FACEBOOK_APP_SECRET', ''),
   #                 token_params: { parse: :json }
+
+  # JWT configuration
+  config.jwt do |jwt|
+    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+  end
 end
