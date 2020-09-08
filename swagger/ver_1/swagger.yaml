@@ -56,10 +56,10 @@ paths:
       - Users
       parameters: []
       responses:
-        '200':
+        '201':
           description: Logged in
           content: {}
-        '406':
+        '401':
           description: Invalid credentials
           content: {}
       requestBody:
@@ -78,6 +78,26 @@ paths:
               required:
               - email
               - password
+  "/users/sign_out":
+    delete:
+      summary: Log out
+      tags:
+      - Users
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      responses:
+        '204':
+          description: User logged out
+          content: {}
+securityDefinitions:
+  Bearer:
+    description: Bearer JWT Token
+    type: apiKey
+    name: Authorization
+    in: header
 servers:
 - url: http://localhost:3000
   variables:

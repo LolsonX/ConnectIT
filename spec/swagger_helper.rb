@@ -22,6 +22,14 @@ RSpec.configure do |config|
         version: "ver_1"
       },
       paths: {},
+      securityDefinitions: {
+        Bearer: {
+          description: "Bearer JWT Token",
+          type: :apiKey,
+          name: "Authorization",
+          in: :header
+        }
+      },
       servers: [
         {
           url: "http://localhost:3000",

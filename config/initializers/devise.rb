@@ -316,6 +316,7 @@ Devise.setup do |config|
 
   # JWT configuration
   config.jwt do |jwt|
-    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.secret = "db70e50ec08feabaa1f05c65dadfc8057fb774052ff8fe7bc90b6d4001bfb681bbd6c26fbf06b77f39078270093948a5fd9ea09fac495fc9f7aab43241836dcf"
+    # jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
   end
 end

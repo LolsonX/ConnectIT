@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable,
     :trackable, :lockable, :timeoutable,
-    :jwt_authenticatable, jwt_revocation_strategy: Devise::JWT::RevocationStrategies::Denylist
+    :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
   validates :email, format: {with: Devise.email_regexp}
   # noinspection RailsParamDefResolve
   validates_confirmation_of :password

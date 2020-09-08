@@ -1,4 +1,5 @@
 require "swagger_helper"
+require "warden"
 
 describe "ConnectIT API Registration tests" do
   path "/users" do
@@ -30,10 +31,19 @@ describe "ConnectIT API Registration tests" do
             password: "1234qwer",
             password_confirmation: "1234qwer",
             birthdate: Date.new(2000, 2, 3),
-            name: Faker::Name.name
+            name: Faker::Name.name,
+            website: "http://myweb.com",
+            location: "Poland",
+            description: "My description"
           }}
         end
-        run_test!
+        run_test! do |response|
+          expect(JSON.parse(response.body)["name"]).not_to be_falsey
+          expect(JSON.parse(response.body)["birthdate"]).not_to be_falsey
+          expect(JSON.parse(response.body)["website"]).not_to be_falsey
+          expect(JSON.parse(response.body)["location"]).not_to be_falsey
+          expect(JSON.parse(response.body)["description"]).not_to be_falsey
+        end
       end
 
       response "422", "Invalid data" do
