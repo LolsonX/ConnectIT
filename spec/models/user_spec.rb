@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe User, type: :model do
@@ -40,7 +41,7 @@ RSpec.describe User, type: :model do
     end
     it { should validate_presence_of :email }
     it { should validate_presence_of :name }
-    it { should validate_uniqueness_of(:name).scoped_to(:tag_num) }
+    it { should validate_uniqueness_of(:name).scoped_to(:num_tag) }
     it { should validate_length_of(:description).is_at_most(140) }
     it { should validate_confirmation_of(:password) }
   end

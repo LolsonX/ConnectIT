@@ -1,7 +1,6 @@
 require "swagger_helper"
 
 describe "ConnectIT API Registration tests" do
-
   path "/users" do
     post "Registers user" do
       tags "Users"
@@ -46,6 +45,56 @@ describe "ConnectIT API Registration tests" do
            name: Faker::Name.name}
         end
         run_test!
+      end
+    end
+  end
+
+  path "/users/sign_in" do
+    post "Login user" do
+      tags "Users"
+      produces "application/json"
+      consumes "application/json"
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          user: {type: :object, properties: {
+            email: {type: :string},
+            password: {type: :string}
+          }}
+        },
+        required: [:email, :password]
+      }
+      response "201", "Logged in" do
+        let(:user) do
+          User.create! email: "example@example.com",
+                       password: "1234qwer",
+                       password_confirmation: "1234qwer",
+                       birthdate: Date.new(2000, 2, 3),
+                       name: Faker::Name.name
+          return {user: {
+            email: "example@example.com",
+            password: "1234qwer"
+          }}
+        end
+        run_test! do |response|
+          expect(response.headers["Authorization"]).not_to be_falsey
+        end
+      end
+      response "401", "Invalid credentials" do
+        let(:user) do
+          User.create! email: "example@example.com",
+                       password: "1234qwer",
+                       password_confirmation: "1234qwer",
+                       birthdate: Date.new(2000, 2, 3),
+                       name: Faker::Name.name
+          return {user: {
+            email: "example@example.com",
+            password: "123qwer"
+          }}
+        end
+        run_test! do |response|
+          expect(response.headers["Authorization"]).to be_falsey
+        end
       end
     end
   end

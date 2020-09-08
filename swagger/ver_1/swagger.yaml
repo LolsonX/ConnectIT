@@ -49,6 +49,35 @@ paths:
               - password_confirmation
               - name
               - birthdate
+  "/users/sign_in":
+    post:
+      summary: Login user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '200':
+          description: Logged in
+          content: {}
+        '406':
+          description: Invalid credentials
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+              required:
+              - email
+              - password
 servers:
 - url: http://localhost:3000
   variables:
