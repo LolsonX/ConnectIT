@@ -1,0 +1,56 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: ver_1
+paths:
+  "/users":
+    post:
+      summary: Registers user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+          content: {}
+        '422':
+          description: Invalid data
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+                    password_confirmation:
+                      type: string
+                    description:
+                      type: string
+                    birthdate:
+                      type: string
+                      format: date
+                    website:
+                      type: string
+                    location:
+                      type: string
+                    name:
+                      type: string
+              required:
+              - email
+              - password
+              - password_confirmation
+              - name
+              - birthdate
+servers:
+- url: http://localhost:3000
+  variables:
+    defaultHost:
+      default: www.example.com
