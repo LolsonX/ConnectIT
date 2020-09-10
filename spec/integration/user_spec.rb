@@ -136,6 +136,80 @@ describe "ConnectIT API Registration tests" do
                                   as: :json)
           @response["Authorization"]
         end
+        run_test! do
+          user = User.find_by email: "example@example.com"
+          expect(user).not_to be_nil
+          expect(user.name).not_to eq("New Name")
+          expect(user.description).to eq("My description")
+          expect(user.location).to eq("Poland")
+          expect(user.website).to eq("http://myweb.com")
+          expect(user.birthdate).to eq(Date.new(2000, 2, 3))
+        end
+      end
+      response "401", "Not authorized" do
+        let(:user) do
+          return {user: {
+            email: Faker::Internet.email,
+            password: "1234qwer",
+            password_confirmation: "1234qwer",
+            birthdate: Date.new(2000, 2, 3),
+            name: Faker::Name.name,
+            website: "http://myweb.com",
+            location: "Poland",
+            description: "My description"
+          }}
+        end
+        let(:Authorization) { "blalbla" }
+        run_test!
+      end
+    end
+    put "Edit user" do
+      tags "Users"
+      produces "application/json"
+      consumes "application/json"
+      parameter name: :Authorization, in: :header, type: :string, required: true
+      parameter name: :current_password,
+                in: :user,
+                required: true,
+                type: :string
+
+      parameter name: :user, in: :body, type: :object, schema: {
+        type: :object,
+        properties: {
+          user: {type: :object, properties: {
+            current_password: {type: :string},
+            password: {type: :string},
+            description: {type: :string},
+            website: {type: :string},
+            location: {type: :string}
+          }}
+        }
+      }
+      response "204", "Updated" do
+        let(:user) do
+          return {user: {
+            email: "example1@example.com",
+            current_password: "1234qwer",
+            birthdate: Date.new(2000, 2, 3),
+            name: "New Name",
+            website: "http://myweb.com",
+            location: "Poland",
+            description: "My description"
+          }}
+        end
+        let(:Authorization) do
+          User.create! email: "example@example.com",
+                       password: "1234qwer",
+                       password_confirmation: "1234qwer",
+                       birthdate: Date.new(2000, 2, 1),
+                       name: Faker::Name.name
+          post("/users/sign_in/", params: {user: {
+            email: "example@example.com",
+            password: "1234qwer"
+          }},
+                                  as: :json)
+          @response["Authorization"]
+        end
         run_test! do |response|
           user = User.find_by email: "example@example.com"
           expect(user).not_to be_nil
@@ -222,6 +296,33 @@ describe "ConnectIT API Registration tests" do
         end
         run_test! do |response|
           expect(response.headers["Authorization"]).to be_falsey
+        end
+      end
+    end
+  end
+
+  path "/users/sign_out" do
+    delete "Sign out user" do
+      tags "Users"
+      produces "application/json"
+      consumes "application/json"
+      parameter name: :Authorization, in: :header, type: :string, required: true
+      response "204", "Signed out" do
+        let(:Authorization) do
+          User.create! email: "example@example.com",
+                       password: "1234qwer",
+                       password_confirmation: "1234qwer",
+                       birthdate: Date.new(2000, 2, 1),
+                       name: Faker::Name.name
+          post("/users/sign_in/", params: {user: {
+            email: "example@example.com",
+            password: "1234qwer"
+          }},
+                                  as: :json)
+          @response["Authorization"]
+        end
+        run_test! do
+          expect(JwtDenylist.count).not_to be_falsey
         end
       end
     end

@@ -125,6 +125,47 @@ paths:
                       type: string
                     location:
                       type: string
+    put:
+      summary: Edit user
+      tags:
+      - Users
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: current_password
+        in: user
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Updated
+          content: {}
+        '401':
+          description: Not authorized
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    current_password:
+                      type: string
+                    password:
+                      type: string
+                    description:
+                      type: string
+                    website:
+                      type: string
+                    location:
+                      type: string
   "/users/sign_in":
     post:
       summary: Login user
@@ -166,6 +207,21 @@ paths:
                   - password
                 required:
                 - user
+  "/users/sign_out":
+    delete:
+      summary: Sign out user
+      tags:
+      - Users
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Signed out
+          content: {}
 servers:
 - url: http://localhost:3000
   variables:
