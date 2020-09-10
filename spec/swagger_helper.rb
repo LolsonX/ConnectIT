@@ -16,20 +16,12 @@ RSpec.configure do |config|
   # the root example_group in your specs, e.g. describe '...', swagger_doc: 'v2/swagger.json'
   config.swagger_docs = {
     "ver_1/swagger.yaml" => {
-      openapi: "3.0.1",
+      openapi: "3.0.3",
       info: {
         title: "API V1",
         version: "ver_1"
       },
       paths: {},
-      securityDefinitions: {
-        Bearer: {
-          description: "Bearer JWT Token",
-          type: :apiKey,
-          name: "Authorization",
-          in: :header
-        }
-      },
       servers: [
         {
           url: "http://localhost:3000",

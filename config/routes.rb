@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :users, defaults: {format: :json}, controllers: {
-      registrations: "users/registrations"
+    registrations: "users/registrations"
   }
   namespace :api do
     namespace :ver_1 do

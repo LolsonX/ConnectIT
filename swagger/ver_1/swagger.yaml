@@ -1,5 +1,5 @@
 ---
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: API V1
   version: ver_1
@@ -9,7 +9,48 @@ paths:
       summary: Registers user
       tags:
       - Users
-      parameters: []
+      parameters:
+      - name: email
+        in: user
+        required: true
+        schema:
+          type: string
+      - name: password
+        in: user
+        required: true
+        schema:
+          type: string
+      - name: password_confirmation
+        in: user
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: user
+        required: true
+        schema:
+          type: string
+      - name: description
+        in: user
+        required: false
+        schema:
+          type: string
+      - name: birthdate
+        in: user
+        required: false
+        format: date
+        schema:
+          type: string
+      - name: website
+        in: user
+        required: false
+        schema:
+          type: string
+      - name: location
+        in: user
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: user created
@@ -43,18 +84,63 @@ paths:
                       type: string
                     name:
                       type: string
-              required:
-              - email
-              - password
-              - password_confirmation
-              - name
-              - birthdate
+    patch:
+      summary: Edit user
+      tags:
+      - Users
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: current_password
+        in: user
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Updated
+          content: {}
+        '401':
+          description: Not authorized
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    current_password:
+                      type: string
+                    password:
+                      type: string
+                    description:
+                      type: string
+                    website:
+                      type: string
+                    location:
+                      type: string
   "/users/sign_in":
     post:
       summary: Login user
       tags:
       - Users
-      parameters: []
+      parameters:
+      - name: email
+        in: user
+        required: true
+        schema:
+          type: string
+      - name: password
+        in: user
+        required: true
+        schema:
+          type: string
       responses:
         '201':
           description: Logged in
@@ -75,29 +161,11 @@ paths:
                       type: string
                     password:
                       type: string
-              required:
-              - email
-              - password
-  "/users/sign_out":
-    delete:
-      summary: Log out
-      tags:
-      - Users
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      responses:
-        '204':
-          description: User logged out
-          content: {}
-securityDefinitions:
-  Bearer:
-    description: Bearer JWT Token
-    type: apiKey
-    name: Authorization
-    in: header
+                  required:
+                  - email
+                  - password
+                required:
+                - user
 servers:
 - url: http://localhost:3000
   variables:
