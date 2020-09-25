@@ -12,7 +12,7 @@ App created as a training in Ruby on Rails and to learn ReactJS. It is not going
 * Docker (TODO)
 ## Project setup
 To setup app follow steps
-Before starting prepare database and adjust config in `config/database.yml`. Next follow steps:
+Before starting prepare database and adjust config in `config/database.yml`. Next start API:
 ```bash
 git clone https://github.com/LolsonX/ConnectIT.git
 cd ConnectIT
@@ -20,6 +20,11 @@ bundle install
 rails db:migrate
 rails db:seed
 rails s
+```
+And then start React App:
+```bash
+cd web-connect-it
+npm install && npm start
 ```
 
 ## Api endpoints
