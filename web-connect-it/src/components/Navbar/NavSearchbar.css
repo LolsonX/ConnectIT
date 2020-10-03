@@ -1,0 +1,32 @@
+.navbar-search {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.search-item{
+    height: 100%;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-item input {
+    margin-left: 15px;
+    border-radius: 10px;
+    border: 0;
+}
+
+.search-item input[type=text] {
+    width: 100%;
+    padding: calc(var(--nav-size) * 0.1) 10px;
+    box-sizing: border-box;
+    transition: ease-in-out, border .2s ease-in-out;
+}
+
+.search-item input[type=text]:focus{
+    border: 3px solid var(--bg-accent);
+    outline: none;
+}

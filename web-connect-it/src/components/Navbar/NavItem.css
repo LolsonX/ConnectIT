@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .icon-button {
@@ -15,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #484a4d;
+    background-color: var(--bg-accent);
     transition: filter 300ms;
 }
 

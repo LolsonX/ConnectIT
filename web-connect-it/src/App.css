@@ -1,11 +1,12 @@
 :root {
-  --bg: #242526;
-  --bg-accent: #484a4d;
-  --text-color: #dadce1;
+  --bg: #273043;
+  --bg-accent: #9197AE;
+  --text-color: #EFF6EE;
   --nav-size: 60px;
   --border: 1px solid #474a4d;
   --border-radius: 8px;
   --speed: 500ms;
+  color: var(--text-color)
 }
 
 ul {
