@@ -2,11 +2,14 @@
   --bg: #273043;
   --bg-accent: #9197AE;
   --text-color: #EFF6EE;
-  --nav-size: 60px;
+  --secondary-color: #616482;
+  --transition-speed: 200ms;
+  --nav-size: 7.5vh;
   --border: 1px solid #474a4d;
   --border-radius: 8px;
   --speed: 500ms;
-  color: var(--text-color)
+  color: var(--text-color);
+  font-size: 16px;
 }
 
 ul {
@@ -18,4 +21,27 @@ ul {
 a {
   color: var(--text-color);
   text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--bg-accent);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--bg);
+}
+
+main {
+  color: #000;
+  margin-left: 5rem;
+  padding: 1rem;
 }

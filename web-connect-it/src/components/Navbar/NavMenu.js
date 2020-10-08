@@ -9,6 +9,7 @@ export class NavMenu extends Component {
     render() {
         return(
             <ul className="nav-menu">
+                { this.props.children }
             </ul>
         )
     }

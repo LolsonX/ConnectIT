@@ -1,0 +1,26 @@
+.sidebar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav {
+    width: 5rem;
+    height: 85vh;
+    position: fixed;
+    background-color: var(--bg);
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: width var(--transition-speed) ease;
+}
+
+.sidebar-nav:hover{
+    width: 16rem;
+}
+
+.sidebar-nav:hover .link-text{
+    display: block;
+}

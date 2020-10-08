@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {NavSearchbar} from './NavSearchbar'
 import {NavMenu} from './NavMenu'
 import './Navbar.css'
+import {NavMenuItem} from "./NavMenuItem";
 
 export class Navbar extends Component {
     constructor(props) {
@@ -15,7 +16,9 @@ export class Navbar extends Component {
                     <NavSearchbar />
                 </div>
                 <div className="center-nav-container">
-                    <NavMenu />
+                    <NavMenu>
+                        <NavMenuItem icon="😀"/>
+                    </NavMenu>
                 </div>
                 <div className="right-nav-container">
                     <ul className="navbar-nav">
