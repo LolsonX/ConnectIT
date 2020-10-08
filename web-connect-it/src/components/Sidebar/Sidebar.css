@@ -6,7 +6,8 @@
 
 .sidebar-nav {
     width: 5rem;
-    height: 85vh;
+    height: 92.5vh;
+    margin-top: var(--nav-size);
     position: fixed;
     background-color: var(--bg);
     list-style: none;

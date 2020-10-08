@@ -5,6 +5,7 @@
     max-width: 100%;
     justify-content: center;
     width: 100vw;
+    position: fixed;
 }
 
 .left-nav-container {
