@@ -29,6 +29,11 @@ npm install && npm start
 
 ## Api endpoints
 TODO
+
+| HTTP Verb  | Endpoint | Description | Query | Body params
+|---|---|---|---|---|
+| GET  | / |  Get Swagger documentation | n/a | n/a |
+
 Or just simply type `rails routes` to check available routes 
 ## Tests
 To run tests simply type
